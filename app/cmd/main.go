@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/ashwinkg/monitoring-service/app/internal/config"
-	"github.com/ashwinkg/monitoring-service/app/internal/repository"
+	"github.com/ashwinkg/monitoring-service/internal/config"
+	"github.com/ashwinkg/monitoring-service/internal/repository"
 )
 
 func main() {

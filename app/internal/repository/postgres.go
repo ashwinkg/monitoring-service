@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/ashwinkg/monitoring-service/app/internal/config"
+	"github.com/ashwinkg/monitoring-service/internal/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
