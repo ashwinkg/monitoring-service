@@ -20,7 +20,7 @@ type Config struct {
 func Load() *Config {
 	return &Config{
 		AppPort:     getEnv("APP_PORT", "8080"),
-		PostgresDSN: getEnv("POSTGRES_DSN", "host=postgres user=demo password=demo dbname=demo port=5432 sslmode=disable"),
+		PostgresDSN: getEnv("POSTGRES_DSN", "host=postgres user=postgres password=postgres dbname=postgres port=5432 sslmode=disable"),
 
 		KafkaBroker: getEnv("KAFKA_BROKER", "kafka:9092"),
 		KafkaTopic:  getEnv("KAFKA_TOPIC", "demo-events"),

@@ -148,7 +148,7 @@ go mod tidy
 
 ```bash
 export APP_PORT=8080
-export POSTGRES_DSN="host=localhost user=demo password=demo dbname=demo port=5432 sslmode=disable"
+export POSTGRES_DSN="host=localhost user=postgres password=postgres dbname=postgres port=5432 sslmode=disable"
 export KAFKA_BROKER="localhost:9092"
 export KAFKA_TOPIC="demo-events"
 export KAFKA_GROUP="monitoring-demo-group"
@@ -333,3 +333,10 @@ curl -X POST -H 'Content-type: application/json' \
 **Grafana shows "No data"**
 
 Make sure you selected **Prometheus** as the data source when importing each dashboard, not the default one.
+
+
+
+docker compose down -v
+docker compose build --no-cache app
+docker compose up -d
+docker logs monitoring-service
