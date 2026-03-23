@@ -335,6 +335,10 @@ curl -X POST -H 'Content-type: application/json' \
 Make sure you selected **Prometheus** as the data source when importing each dashboard, not the default one.
 
 
+Kafbat UI
+[http:](http://localhost:8081)
+
+
 
 docker compose down -v
 docker compose build --no-cache app
