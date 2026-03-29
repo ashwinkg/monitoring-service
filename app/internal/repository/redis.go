@@ -8,15 +8,26 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func NewRedis(cfg *config.Config) *redis.Client {
-	rdb := redis.NewClient(&redis.Options{
-		Addr: cfg.RedisAddr,
+type RedisClient struct {
+	Client *redis.Client
+}
+
+func NewRedis(cfg *config.Config) *RedisClient {
+	client := redis.NewClient(&redis.Options{
+		Addr:     cfg.RedisAddr,
+		Password: cfg.RedisPassword,
+		DB:       0,
 	})
 
-	if err := rdb.Ping(context.Background()).Err(); err != nil {
+	if err := client.Ping(context.Background()).Err(); err != nil {
 		log.Fatalf("Failed to connect to Redis: %v", err)
 	}
 
 	log.Println("Connected to Redis")
-	return rdb
+	return &RedisClient{Client: client}
+}
+
+func (r *RedisClient) Close() {
+	r.Client.Close()
+	log.Println("Redis connection closed")
 }
